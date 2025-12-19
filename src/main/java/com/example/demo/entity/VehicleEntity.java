@@ -6,17 +6,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.validation.NotNull;
 import jakarta.validation.Column;
+import jakarta.validation.Min;
 @Entity
 public class VehicleEntity{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    @NotNull
-    private String name;
-    @Email
     @Column(name="vehicleNumber",unique=true)
     private String vehicleNumber;
-    private Double password;
-    private String role; 
+    @Min(0)
+    private Double capacityKg;
+    private Double fuelEfficiency; 
 
 }
