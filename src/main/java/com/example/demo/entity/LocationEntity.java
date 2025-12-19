@@ -16,6 +16,6 @@ public class VehicleEntity{
     private String name;
     @Max(90)
     private Double latitude;
-    private Double fuelEfficiency; 
+    private Double longtitude; 
 
 }
