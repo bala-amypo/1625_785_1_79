@@ -6,6 +6,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.validation.NotNull;
 import jakarta.validation.Email;
 import jakarta.validation.Column;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class UserEntity{
     @Id
