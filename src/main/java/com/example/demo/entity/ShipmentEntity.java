@@ -7,15 +7,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.validation.NotNull;
 import jakarta.validation.Column;
 import jakarta.validation.Min;
+import java.time.LocalDate;
 @Entity
 public class VehicleEntity{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    @Column(name="vehicleNumber",unique=true)
-    private String vehicleNumber;
-    @Min(0)
-    private Double capacityKg;
-    private Double fuelEfficiency; 
+    @ManyToOne
+    private String vehicle;
+    @ManyToOne
+    private String pickupLocation;
+    @ManyToOne
+    private String dropLocation;
+    private double weightKg;
+    private LocalDate scheduledDate;
 
 }
