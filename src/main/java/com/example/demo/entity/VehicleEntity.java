@@ -7,6 +7,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.validation.NotNull;
 import jakarta.validation.Column;
 import jakarta.validation.Min;
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class VehicleEntity{
     @Id

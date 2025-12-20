@@ -6,7 +6,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.validation.NotNull;
 import jakarta.validation.Email;
 import jakarta.validation.Column;
-
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
