@@ -5,7 +5,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Column;
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.Max;
 import jakarta.persistence.ManyToOne;
 
