@@ -7,6 +7,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Column;
 import jakarta.validation.constraints.Max;
+import jakarta.persistence.ManyToOne;
+
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
