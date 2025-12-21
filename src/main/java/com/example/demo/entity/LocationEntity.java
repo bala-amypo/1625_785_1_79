@@ -24,6 +24,6 @@ public class LocationEntity{
     private String name;
     @Max(90)
     private Double latitude;
-    private Double longtitude; 
+    private Double longitude; 
 
 }
