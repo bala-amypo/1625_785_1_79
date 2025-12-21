@@ -8,7 +8,7 @@ import jakarta.persistence.Column;
 import jakarta.validation.constraints.Max;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
-import package.com.example.demo.entity.UserEntity;
+import com.example.demo.entity.UserEntity;
 import jakarta.validation.constraints.Min;
 import lombok.Data;
 import lombok.AllArgsConstructor;
