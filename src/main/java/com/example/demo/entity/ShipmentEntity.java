@@ -7,7 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Max;
 import jakarta.persistence.ManyToOne;
-
+import jakarta.persistence.JoinColumn;
 import java.time.LocalDate;
 import lombok.Data;
 import lombok.AllArgsConstructor;
@@ -20,11 +20,17 @@ public class ShipmentEntity{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    // @ManyToOne
+    @ManyToOne
+     @JoinColumn(name="vehicle_id",nullable=false)
+    private VehicleEntity id;
     private String vehicle;
-    // @ManyToOne
+    @ManyToOne
+       @JoinColumn(name="location_id",nullable=false)
+    private LocationEntity id;
     private String pickupLocation;
-    // @ManyToOne
+    @ManyToOne
+       @JoinColumn(name="location_id",nullable=false)
+    private LocationEntity id;
     private String dropLocation;
     private double weightKg;
     private LocalDate scheduledDate;
