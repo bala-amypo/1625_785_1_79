@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Max;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 import jakarta.validation.constraints.Min;
 import lombok.Data;
 import lombok.AllArgsConstructor;
@@ -19,6 +20,9 @@ public class VehicleEntity{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
+    @ManyToOne
+    @JoinColumn(name="user_id",nullable=false)
+    private UserEntity id;
     @Column(name="vehicleNumber",unique=true)
     private String vehicleNumber;
     @Min(0)
