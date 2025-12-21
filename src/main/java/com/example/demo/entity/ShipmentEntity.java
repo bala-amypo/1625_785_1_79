@@ -20,11 +20,11 @@ public class ShipmentEntity{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
+    // @ManyToOne
     private String vehicle;
-    @ManyToOne
+    // @ManyToOne
     private String pickupLocation;
-    @ManyToOne
+    // @ManyToOne
     private String dropLocation;
     private double weightKg;
     private LocalDate scheduledDate;

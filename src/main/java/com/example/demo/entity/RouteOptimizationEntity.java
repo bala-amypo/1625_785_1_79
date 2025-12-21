@@ -19,7 +19,7 @@ public class RouteOptimizationEntity{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
-    @ManyToOne
+    // @ManyToOne
     private String Shipment;
     private double optimizedDistanceKm;
     private double estimatedFuelUsageL;
