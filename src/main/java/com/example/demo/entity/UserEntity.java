@@ -7,7 +7,8 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Max;
 import jakarta.persistence.ManyToOne;
-import jakarta
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Email;
 import lombok.Data;
@@ -31,6 +32,8 @@ public class UserEntity{
     @Column(name="email",unique=true)
     private String email;
     private String password;
-    private String role; 
+    @Enumerated(EnumType.String)
+    @Column(nullable=false)
+    private Role role; 
 
 }
