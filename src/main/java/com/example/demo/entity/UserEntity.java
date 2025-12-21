@@ -16,7 +16,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-
+public enum Role{
+USER,
+ADMIN
+}
 public class UserEntity{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
