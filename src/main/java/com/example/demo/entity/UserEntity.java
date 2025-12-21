@@ -7,6 +7,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Column;
 import jakarta.validation.constraints.Max;
 import jakarta.persistence.ManyToOne;
+import jakarta
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Email;
 import lombok.Data;
