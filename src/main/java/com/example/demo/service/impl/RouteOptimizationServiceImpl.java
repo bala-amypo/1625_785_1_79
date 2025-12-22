@@ -3,7 +3,7 @@ package com.example.demo.service.impl;
 import com.example.demo.entity.RouteOptimizationEntity;
 import com.example.demo.entity.ShipmentEntity;
 import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.repository.routeOptimizationrepository;
+import com.example.demo.repository.|RouteOptimizationRepository;
 import com.example.demo.repository.ShipmentRepository;
 import com.example.demo.service.RouteOptimizationService;
 
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class RouteOptimizationServiceImpl implements RouteOptimizationService {
 
     private final ShipmentRepository shipmentrepository;
-    private final routeoptimizationrepository resultRepository;
+    private final RouteOptimizationRepository resultRepository;
 
     public RouteOptimizationServiceImpl(shipmentrepository sr,
                                         routeoptimizationrepository rr) {
