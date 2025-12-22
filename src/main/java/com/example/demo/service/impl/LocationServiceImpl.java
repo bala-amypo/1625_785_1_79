@@ -8,7 +8,7 @@ import java.util.List;
 
 public class LocationServiceImpl implements LocationService {
 
-    private final locationrepository locationRepository;
+    private final LocationRepository locationRepository;
 
     public LocationServiceImpl(locationrepository repo) {
         this.locationrepository = repo;
