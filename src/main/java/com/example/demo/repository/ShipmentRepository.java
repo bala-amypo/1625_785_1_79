@@ -3,5 +3,5 @@ import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.demo.entity.ShipmentEntity;
 @Repository
-public interface  shipmentrepository extends JpaRepository<ShipmentEntity,Long>{
+public interface  ShipmentRepository extends JpaRepository<ShipmentEntity,Long>{
 } 
