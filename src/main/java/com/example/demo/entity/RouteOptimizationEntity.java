@@ -3,7 +3,7 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-import l
+import lombok.Builder;
 import java.time.LocalDateTime;
 
 import lombok.Data;
