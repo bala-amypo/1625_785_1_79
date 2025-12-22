@@ -3,7 +3,7 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
-
+import l
 import java.time.LocalDateTime;
 
 import lombok.Data;
@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 @Table(name = "route_optimizations")
 public class RouteOptimizationEntity {
 
