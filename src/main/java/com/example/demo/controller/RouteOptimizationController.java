@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.RouteOptimizationResultEntity;
+import com.example.demo.entity.RouteOptimizationEntity;
 import com.example.demo.service.RouteOptimizationService;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +15,7 @@ public class RouteOptimizationController {
     }
 
     @GetMapping("/result/{id}")
-    public RouteOptimizationResultEntity getResult(@PathVariable Long id) {
+    public RouteOptimizationEntity getResult(@PathVariable Long id) {
         return routeService.getResult(id);
     }
 }
