@@ -5,7 +5,7 @@ import com.example.demo.service.RouteOptimizationService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/routes")
+
 public class RouteOptimizationController {
 
     private final RouteOptimizationService routeService;
