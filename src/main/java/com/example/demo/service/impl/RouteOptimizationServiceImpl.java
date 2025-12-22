@@ -33,13 +33,7 @@ public class RouteOptimizationServiceImpl implements RouteOptimizationService {
 
         double fuel = distance / shipment.getVehicle().getFuelEfficiency();
 
-        RouteOptimizationEntity result =
-                RouteOptimizationEntity.builder()
-                        .shipment(shipment)
-                        .optimizedDistanceKm(distance)
-                        .estimatedFuelUsageL(fuel)
-                        .generatedAt(LocalDateTime.now())
-                        .build();
+
 
         return resultRepository.save(result);
     }
