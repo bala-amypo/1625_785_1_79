@@ -21,7 +21,7 @@ public class ShipmentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // Each shipment is assigned to ONE vehicle
+
     @ManyToOne
     @JoinColumn(name = "vehicle_id", nullable = false)
     private VehicleEntity vehicle;
