@@ -4,7 +4,7 @@ import com.example.demo.entity.UserEntity;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
-import com.example.demo.
+import com.example.demo.entity.Role;
 
 public class UserServiceImpl implements UserService {
 

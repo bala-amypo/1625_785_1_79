@@ -23,7 +23,7 @@ public class RouteOptimizationServiceImpl implements RouteOptimizationService {
     @Override
     public RouteOptimizationEntity optimizeRoute(Long shipmentId) {
 
-        ShipmentEntity shipment = shipmentRepository.findById(shipmentId)
+        ShipmentEntity shipment = shipmentrepository.findById(shipmentId)
                 .orElseThrow(() -> new ResourceNotFoundException("Shipment not found"));
 
         double distance = Math.hypot(
