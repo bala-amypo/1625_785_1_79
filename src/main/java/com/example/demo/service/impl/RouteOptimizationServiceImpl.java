@@ -41,7 +41,7 @@ public class RouteOptimizationServiceImpl implements RouteOptimizationService {
                         .generatedAt(LocalDateTime.now())
                         .build();
 
-        return resultRepository.save(null);
+        return resultRepository.save(result);
     }
 
     @Override
