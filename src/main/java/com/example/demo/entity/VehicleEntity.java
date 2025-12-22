@@ -1,33 +1,35 @@
 package com.example.demo.entity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.validation.constraints.NotNull;
-import jakarta.persistence.Column;
-import jakarta.validation.constraints.Max;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.JoinColumn;
-import com.example.demo.entity.UserEntity;
+
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class VehicleEntity{
-    @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long id;
-    @ManyToOne
-    @JoinColumn(name="user_id",nullable=false)
-    private UserEntity user;
-    @Column(name="vehicleNumber",unique=true)
-    private String vehicleNumber;
-    @Min(0)
-    private Double capacityKg;
-    private Double fuelEfficiency; 
+@Table(name = "vehicles") // Optional: specify table name
+public class VehicleEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    @NotNull(message = "User cannot be null")
+    private UserEntity user;
+
+    @Column(name = "vehicle_number", unique = true, nullable = false)
+    @NotNull(message = "Vehicle number cannot be null")
+    private String vehicleNumber;
+
+    @Min(value = 0, message = "Capacity must be greater than or equal to 0")
+    private Double capacityKg;
+
+    private Double fuelEfficiency; 
 }
