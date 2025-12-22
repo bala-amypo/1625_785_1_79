@@ -4,27 +4,31 @@ import com.example.demo.entity.UserEntity;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-    private final BCryptPasswordEncoder encoder;
 
-    public UserServiceImpl(UserRepository repo, BCryptPasswordEncoder encoder) {
+    public UserServiceImpl(UserRepository repo) {
         this.userRepository = repo;
-        this.encoder = encoder;
     }
 
     @Override
     public UserEntity register(UserEntity user) {
+
+        if (user.getEmail() == null || user.getEmail().isBlank()) {
+            throw new IllegalArgumentException("Email cannot be empty");
+        }
+
         if (user.getPassword() == null || user.getPassword().isBlank()) {
             throw new IllegalArgumentException("Password cannot be empty");
         }
-        user.setPassword(encoder.encode(user.getPassword()));
+
+
         if (user.getRole() == null) {
             user.setRole("USER");
         }
+
         return userRepository.save(user);
     }
 
