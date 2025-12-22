@@ -3,5 +3,5 @@ import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import com.example.demo.entity.UserEntity;
 @Repository
-public interface  userrepository extends JpaRepository<UserEntity,Long>{
+public interface  UserRepository extends JpaRepository<UserEntity,Long>{
 } 
