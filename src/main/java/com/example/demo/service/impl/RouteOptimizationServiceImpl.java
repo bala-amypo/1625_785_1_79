@@ -35,7 +35,7 @@ public class RouteOptimizationServiceImpl implements RouteOptimizationService {
 
         RouteOptimizationEntity result =
                 RouteOptimizationEntity.builder()
-                        .shipment(shipment)
+                        .shipment(shipment.getId().toString())
                         .optimizedDistanceKm(distance)
                         .estimatedFuelUsageL(fuel)
                         .generatedAt(LocalDateTime.now())
