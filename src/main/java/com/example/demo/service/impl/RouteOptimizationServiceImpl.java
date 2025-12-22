@@ -8,7 +8,9 @@ import com.example.demo.repository.ShipmentRepository;
 import com.example.demo.service.RouteOptimizationService;
 
 import java.time.LocalDateTime;
+import org.springframework.stereotype.Service; 
 
+@Service
 public class RouteOptimizationServiceImpl implements RouteOptimizationService {
 
     private final ShipmentRepository shipmentrepository;
