@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.RouteOptimizationResultEntity;
+import com.example.demo.entity.RouteOptimizationEntity;
 import com.example.demo.entity.ShipmentEntity;
 import com.example.demo.service.RouteOptimizationService;
 import com.example.demo.service.ShipmentService;
@@ -25,7 +25,7 @@ public class ShipmentController {
     }
 
     @PostMapping("/{shipmentId}/optimize")
-    public RouteOptimizationResultEntity optimize(@PathVariable Long shipmentId) {
+    public RouteOptimizationEntity optimize(@PathVariable Long shipmentId) {
         return routeService.optimizeRoute(shipmentId);
     }
 }
