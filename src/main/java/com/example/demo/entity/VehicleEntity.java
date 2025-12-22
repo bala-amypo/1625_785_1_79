@@ -23,7 +23,7 @@ public class VehicleEntity{
     private Long id;
     @ManyToOne
     @JoinColumn(name="user_id",nullable=false)
-    private UserEntity id;
+    private UserEntity user;
     @Column(name="vehicleNumber",unique=true)
     private String vehicleNumber;
     @Min(0)
