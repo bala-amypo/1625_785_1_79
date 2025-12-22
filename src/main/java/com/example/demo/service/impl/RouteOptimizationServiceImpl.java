@@ -1,9 +1,9 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.entity.RouteOptimizationResultEntity;
+import com.example.demo.entity.RouteOptimizationEntity;
 import com.example.demo.entity.ShipmentEntity;
 import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.repository.RouteOptimizationResultRepository;
+import com.example.demo.repository.routeOptimizationRepository;
 import com.example.demo.repository.ShipmentRepository;
 import com.example.demo.service.RouteOptimizationService;
 
@@ -11,11 +11,11 @@ import java.time.LocalDateTime;
 
 public class RouteOptimizationServiceImpl implements RouteOptimizationService {
 
-    private final ShipmentRepository shipmentRepository;
-    private final RouteOptimizationResultRepository resultRepository;
+    private final ShipmentRepository shipmentrepository;
+    private final routeoptimizationRepository resultRepository;
 
-    public RouteOptimizationServiceImpl(ShipmentRepository sr,
-                                        RouteOptimizationResultRepository rr) {
+    public RouteOptimizationServiceImpl(shipmentrepository sr,
+                                        routeoptimizationrepository rr) {
         this.shipmentRepository = sr;
         this.resultRepository = rr;
     }

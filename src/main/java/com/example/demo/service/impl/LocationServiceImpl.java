@@ -1,16 +1,16 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.entity.LocationEntity;
-import com.example.demo.repository.LocationRepository;
+import com.example.demo.repository.locationRepository;
 import com.example.demo.service.LocationService;
 
 import java.util.List;
 
 public class LocationServiceImpl implements LocationService {
 
-    private final LocationRepository locationRepository;
+    private final locationRepository locationRepository;
 
-    public LocationServiceImpl(LocationRepository repo) {
+    public LocationServiceImpl(locationRepository repo) {
         this.locationRepository = repo;
     }
 
