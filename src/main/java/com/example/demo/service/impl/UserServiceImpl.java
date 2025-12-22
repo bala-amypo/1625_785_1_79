@@ -4,6 +4,7 @@ import com.example.demo.entity.UserEntity;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
+import com.example.demo.
 
 public class UserServiceImpl implements UserService {
 
@@ -26,7 +27,7 @@ public class UserServiceImpl implements UserService {
 
 
         if (user.getRole() == null) {
-            user.setRole("USER");
+            user.setRole(Role.USER);
         }
 
         return userRepository.save(user);

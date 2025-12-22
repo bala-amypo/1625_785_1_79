@@ -11,7 +11,7 @@ public class LocationServiceImpl implements LocationService {
     private final LocationRepository locationRepository;
 
     public LocationServiceImpl(LocationRepository repo) {
-        this.locationrepository = repo;
+        this.locationRepository = repo;
     }
 
     @Override
