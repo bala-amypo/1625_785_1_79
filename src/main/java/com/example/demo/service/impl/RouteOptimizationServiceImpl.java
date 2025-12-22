@@ -3,7 +3,7 @@ package com.example.demo.service.impl;
 import com.example.demo.entity.RouteOptimizationEntity;
 import com.example.demo.entity.ShipmentEntity;
 import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.repository.routeOptimizationRepository;
+import com.example.demo.repository.routeOptimizationrepository;
 import com.example.demo.repository.ShipmentRepository;
 import com.example.demo.service.RouteOptimizationService;
 
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 public class RouteOptimizationServiceImpl implements RouteOptimizationService {
 
     private final ShipmentRepository shipmentrepository;
-    private final routeoptimizationRepository resultRepository;
+    private final routeoptimizationrepository resultRepository;
 
     public RouteOptimizationServiceImpl(shipmentrepository sr,
                                         routeoptimizationrepository rr) {
@@ -21,7 +21,7 @@ public class RouteOptimizationServiceImpl implements RouteOptimizationService {
     }
 
     @Override
-    public RouteOptimizationResultEntity optimizeRoute(Long shipmentId) {
+    public RouteOptimizationEntity optimizeRoute(Long shipmentId) {
 
         ShipmentEntity shipment = shipmentRepository.findById(shipmentId)
                 .orElseThrow(() -> new ResourceNotFoundException("Shipment not found"));
@@ -33,8 +33,8 @@ public class RouteOptimizationServiceImpl implements RouteOptimizationService {
 
         double fuel = distance / shipment.getVehicle().getFuelEfficiency();
 
-        RouteOptimizationResultEntity result =
-                RouteOptimizationResultEntity.builder()
+        RouteOptimizationEntity result =
+                RouteOptimizationEntity.builder()
                         .shipment(shipment)
                         .optimizedDistanceKm(distance)
                         .estimatedFuelUsageL(fuel)
@@ -45,7 +45,7 @@ public class RouteOptimizationServiceImpl implements RouteOptimizationService {
     }
 
     @Override
-    public RouteOptimizationResultEntity getResult(Long id) {
+    public RouteOptimizationEntity getResult(Long id) {
         return resultRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Result not found"));
     }
