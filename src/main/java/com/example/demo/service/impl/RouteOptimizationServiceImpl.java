@@ -14,7 +14,7 @@ public class RouteOptimizationServiceImpl implements RouteOptimizationService {
     private final ShipmentRepository shipmentrepository;
     private final RouteOptimizationRepository resultRepository;
 
-    public RouteOptimizationServiceImpl(shipmentrepository sr,
+    public RouteOptimizationServiceImpl(ShipmentRepository sr,
                                         routeoptimizationrepository rr) {
         this.shipmentRepository = sr;
         this.resultRepository = rr;

@@ -10,7 +10,7 @@ public class LocationServiceImpl implements LocationService {
 
     private final LocationRepository locationRepository;
 
-    public LocationServiceImpl(locationrepository repo) {
+    public LocationServiceImpl(LocationRepository repo) {
         this.locationrepository = repo;
     }
 
