@@ -3,5 +3,5 @@ import org.springframework.stereotype.Repository;
 import org.springframework.data.jpa.JpaRepository;
 import com.example.demo.entity.RouteOptimizationEntity;
 @Repository
-public Interface  routeoptimizationrepository extends JpaRepository<RouteOptimizationEntity,Long>{
+public interface  routeoptimizationrepository extends JpaRepository<RouteOptimizationEntity,Long>{
 } 
