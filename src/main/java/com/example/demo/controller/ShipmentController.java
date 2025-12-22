@@ -18,7 +18,7 @@ public class ShipmentController {
         this.routeService = rs;
     }
 
-    @PostMapping("/{vehicleId}")
+    @PostMapping("/shipments/{vehicleId}")
     public ShipmentEntity createShipment(@PathVariable Long vehicleId,
                                          @RequestBody ShipmentEntity shipment) {
         return shipmentService.createShipment(vehicleId, shipment);

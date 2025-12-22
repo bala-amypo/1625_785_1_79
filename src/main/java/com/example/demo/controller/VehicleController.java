@@ -16,7 +16,7 @@ public class VehicleController {
         this.vehicleService = vs;
     }
 
-    @PostMapping("/{userId}")
+    @PostMapping("/vehicles/{userId}")
     public VehicleEntity addVehicle(@PathVariable Long userId,
                                     @RequestBody VehicleEntity vehicle) {
         return vehicleService.addVehicle(userId, vehicle);
