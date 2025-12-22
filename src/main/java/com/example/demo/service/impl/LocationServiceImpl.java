@@ -1,7 +1,7 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.entity.LocationEntity;
-import com.example.demo.repository.locationrepository;
+import com.example.demo.repository.LocationRepository;
 import com.example.demo.service.LocationService;
 
 import java.util.List;
