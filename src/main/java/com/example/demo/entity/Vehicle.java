@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "vehicles") // Optional: specify table name
+@Table(name = "vehicles") 
 public class VehicleEntity {
 
     @Id
