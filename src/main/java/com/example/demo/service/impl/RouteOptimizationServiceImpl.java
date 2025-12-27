@@ -1,43 +1,45 @@
 package com.example.demo.service.impl;
 
-import com.example.demo.entity.RouteOptimizationEntity;
-import com.example.demo.entity.ShipmentEntity;
+import com.example.demo.entity.RouteOptimizationResult;
+import com.example.demo.entity.Shipment;
 import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.repository.RouteOptimizationRepository;
+import com.example.demo.repository.RouteOptimizationResultRepository;
 import com.example.demo.repository.ShipmentRepository;
 import com.example.demo.service.RouteOptimizationService;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import org.springframework.stereotype.Service; 
 
 @Service
 public class RouteOptimizationServiceImpl implements RouteOptimizationService {
 
-    private final ShipmentRepository shipmentrepository;
-    private final RouteOptimizationRepository resultRepository;
+    private final ShipmentRepository shipmentRepository;
+    private final RouteOptimizationResultRepository resultRepository;
 
     public RouteOptimizationServiceImpl(ShipmentRepository sr,
-                                        RouteOptimizationRepository rr) {
-        this.shipmentrepository = sr;
+                                        RouteOptimizationResultRepository rr) {
+        this.shipmentRepository = sr;
         this.resultRepository = rr;
     }
 
     @Override
-    public RouteOptimizationEntity optimizeRoute(Long shipmentId) {
+    public RouteOptimizationResult optimizeRoute(Long shipmentId) {
 
-        ShipmentEntity shipment = shipmentrepository.findById(shipmentId)
+        Shipment shipment = shipmentRepository.findById(shipmentId)
                 .orElseThrow(() -> new ResourceNotFoundException("Shipment not found"));
 
         double distance = Math.hypot(
-                shipment.getPickupLocation().getLatitude() - shipment.getDropLocation().getLatitude(),
-                shipment.getPickupLocation().getLongitude() - shipment.getDropLocation().getLongitude()
+                shipment.getPickupLocation().getLatitude()
+                        - shipment.getDropLocation().getLatitude(),
+                shipment.getPickupLocation().getLongitude()
+                        - shipment.getDropLocation().getLongitude()
         );
 
         double fuel = distance / shipment.getVehicle().getFuelEfficiency();
 
-        RouteOptimizationEntity result =
-                RouteOptimizationEntity.builder()
-                        .shipment(shipment.getId().toString())
+        RouteOptimizationResult result =
+                RouteOptimizationResult.builder()
+                        .shipment(shipment)
                         .optimizedDistanceKm(distance)
                         .estimatedFuelUsageL(fuel)
                         .generatedAt(LocalDateTime.now())
@@ -47,7 +49,7 @@ public class RouteOptimizationServiceImpl implements RouteOptimizationService {
     }
 
     @Override
-    public RouteOptimizationEntity getResult(Long id) {
+    public RouteOptimizationResult getResult(Long id) {
         return resultRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Result not found"));
     }
