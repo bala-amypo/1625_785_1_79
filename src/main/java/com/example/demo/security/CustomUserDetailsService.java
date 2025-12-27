@@ -1,6 +1,6 @@
 package com.example.demo.security;
 
-import java.util.List;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -20,7 +20,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String email)
             throws UsernameNotFoundException {
 
-        User user = repo.findByEmail(email);
+        Optional user = repo.findByEmail(email);
 
         if (user == null) {
             throw new UsernameNotFoundException(
