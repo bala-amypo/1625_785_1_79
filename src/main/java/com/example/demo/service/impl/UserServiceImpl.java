@@ -6,17 +6,19 @@ import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import com.example.demo.entity.Role;
 
 @Service
 public class UserServiceImpl implements UserService {
-
+ 
+    private final PasswordEncoder encoder;
     private final UserRepository userRepository;
     // private final BCryptPasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository repo) {
+    public UserServiceImpl(UserRepository repo,PasswordEncoder encoder) {
         this.userRepository = repo;
-        // this.passwordEncoder = encoder;
+        this.encoder = encoder;
     }
 
     @Override
@@ -29,7 +31,7 @@ public class UserServiceImpl implements UserService {
             throw new IllegalArgumentException("Password cannot be empty");
 
    
-        // user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(encoder.encode(user.getPassword()));
 
        if (user.getRole() == null) {
     user.setRole(Role.USER);
