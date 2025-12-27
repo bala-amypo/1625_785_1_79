@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 @Component
 public class JwtFilter   extends OncePerRequestFilter{
     @Autowired
-    private jwtUtil JwtUtil;
+    private JwtUtil jwtUtil;
 
     @Autowired
     private CustomUserDetailsService userDetailsService;
@@ -38,7 +38,7 @@ public class JwtFilter   extends OncePerRequestFilter{
         // Extract token
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             token = authHeader.substring(7);
-            email = JwtUtil.extractEmail(token);
+            email = jwtUtil.extractEmail(token);
         }
 
         // Authenticate
