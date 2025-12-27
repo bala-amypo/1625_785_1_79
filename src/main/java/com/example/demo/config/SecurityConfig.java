@@ -1,4 +1,4 @@
-package com.example.springboot.Config;
+package com.example.demo.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.example.springboot.Security.JwtFilter;
+import com.example.demo.security.JwtFilter;
 
 @Configuration // to denote it as a config file
 @EnableMethodSecurity(prePostEnabled = true)
