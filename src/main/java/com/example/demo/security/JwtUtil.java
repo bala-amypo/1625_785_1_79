@@ -54,6 +54,10 @@ public class JwtUtil {
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }
+    public String generateToken(Long userId, String email, Role role) {
+    return generateToken(userId, email, role.name());
+}
+
 
     public String extractEmail(String token) {
         return Jwts.parserBuilder()
@@ -65,24 +69,24 @@ public class JwtUtil {
     }
 
 
-    public boolean validateToken(String token, String email) {
-        try {
-            String tokenEmail = extractEmail(token);
-            return tokenEmail.equals(email) && !isTokenExpired(token);
-        } catch (JwtException e) {
-            return false;
-        }
+ public Boolean validateToken(String token) {
+    try {
+        extractEmail(token);
+        return !isTokenExpired(token);
+    } catch (Exception e) {
+        return false;
     }
+}
 
-
-    public boolean validateToken(String token) {
-        try {
-            extractEmail(token);
-            return !isTokenExpired(token);
-        } catch (Exception e) {
-            return false;
-        }
+public Boolean validateToken(String token, String email) {
+    try {
+        String tokenEmail = extractEmail(token);
+        return tokenEmail.equals(email) && !isTokenExpired(token);
+    } catch (Exception e) {
+        return false;
     }
+}
+
 
     private boolean isTokenExpired(String token) {
         Date expiration = Jwts.parserBuilder()
