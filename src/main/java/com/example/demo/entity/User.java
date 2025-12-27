@@ -28,9 +28,8 @@ public class User {
     @NotNull
     private String password;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Role role;
+ 
+    private String role;
 
     // public void setRole(String role) {
     //     this.role = Role.from(role);
