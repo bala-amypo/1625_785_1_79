@@ -14,10 +14,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import javax.crypto.SecretKey;
 
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.security.Keys;
 
 
 @Component
@@ -70,12 +67,5 @@ public class JwtFilter   extends OncePerRequestFilter{
 
         filterChain.doFilter(request, response);
     }
-    public String extractEmail(String token) {
-        return Jwts.parserBuilder()
-                .setSigningKey(key)
-                .build()
-                .parseClaimsJws(token)
-                .getBody()
-                .getSubject();
-    }
+
 }
