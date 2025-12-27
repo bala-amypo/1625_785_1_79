@@ -32,10 +32,9 @@ public class User {
     @Column(nullable = false)
     private Role role;
 
-    // ✅ Accepts String roles from tests ("USER", "ADMIN")
-    public void setRole(String role) {
-        this.role = Role.from(role);
-    }
+    // public void setRole(String role) {
+    //     this.role = Role.from(role);
+    // }
 
 
     public void setRole(Role role) {
