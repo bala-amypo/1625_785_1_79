@@ -31,4 +31,8 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private Role role;
+
+    public void setRole(String role) {
+        this.role = Role.from(role);
+    }
 }
