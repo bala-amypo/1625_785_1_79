@@ -12,11 +12,11 @@ import com.example.demo.entity.Role;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-    private final BCryptPasswordEncoder passwordEncoder;
+    // private final BCryptPasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository repo, BCryptPasswordEncoder encoder) {
+    public UserServiceImpl(UserRepository repo) {
         this.userRepository = repo;
-        this.passwordEncoder = encoder;
+        // this.passwordEncoder = encoder;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
             throw new IllegalArgumentException("Password cannot be empty");
 
    
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        // user.setPassword(passwordEncoder.encode(user.getPassword()));
 
        if (user.getRole() == null) {
     user.setRole(Role.USER);
