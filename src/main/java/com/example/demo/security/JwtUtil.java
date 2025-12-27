@@ -13,10 +13,15 @@ import io.jsonwebtoken.JwtException;
 
 @Component
 public class JwtUtil {
-
     // Must be at least 256 bits for HS256
     private static final String SECRET =
         "sdjhgbwubwwbgwiub8QFQ8qg87G1bfewifbiuwg7iu8wefqhjk";
+public JwtUtil(String secret, int expirationMs) {
+    this.key = Keys.hmacShaKeyFor(secret.getBytes());
+    this.expirationMs = expirationMs;
+}
+
+
 
     private final SecretKey key =
         Keys.hmacShaKeyFor(SECRET.getBytes());
