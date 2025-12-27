@@ -86,6 +86,12 @@ public class JwtUtil {
             return ResponseEntity.ok(false);
         }
     }
+     public Jws<Claims> validateToken(String token) {
+        return Jwts.parserBuilder()
+                .setSigningKey(key)
+                .build()
+                .parseClaimsJws(token);
+    }
 
     public ResponseEntity<Boolean> validateToken(String token, String email) {
         try {
