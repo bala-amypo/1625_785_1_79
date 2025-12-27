@@ -30,4 +30,24 @@ public class JwtUtil {
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }
+    public boolean validateToken(String token, String email) {
+        try {
+            String tokenEmail = extractEmail(token);
+            return tokenEmail.equals(email) && !isTokenExpired(token);
+        } catch (JwtException e) {
+            return false;
+        }
+    }
+
+    private boolean isTokenExpired(String token) {
+        Date expiration =
+            Jwts.parserBuilder()
+                .setSigningKey(key)
+                .build()
+                .parseClaimsJws(token)
+                .getBody()
+                .getExpiration();
+
+        return expiration.before(new Date());
+    }
 }
