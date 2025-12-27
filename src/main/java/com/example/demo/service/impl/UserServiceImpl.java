@@ -30,8 +30,9 @@ public class UserServiceImpl implements UserService {
    
         user.setPassword(passwordEncoder.encode(user.getPassword()));
 
-        if (user.getRole() == null)
-            user.setRole("USER");
+       if (user.getRole() == null) {
+    user.setRole(Role.USER);
+}
 
         return userRepository.save(user);
     }
