@@ -1,13 +1,13 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.LocationEntity;
+import com.example.demo.entity.Location;
 import com.example.demo.service.LocationService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@A
-
+@RestController
+@RequestMapping("/locations")
 public class LocationController {
 
     private final LocationService locationService;
@@ -17,12 +17,12 @@ public class LocationController {
     }
 
     @PostMapping
-    public LocationEntity createLocation(@RequestBody LocationEntity location) {
+    public Location createLocation(@RequestBody Location location) {
         return locationService.createLocation(location);
     }
 
     @GetMapping
-    public List<LocationEntity> getAllLocations() {
+    public List<Location> getAllLocations() {
         return locationService.getAllLocations();
     }
 }

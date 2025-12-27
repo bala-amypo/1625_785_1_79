@@ -1,13 +1,13 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.RouteOptimizationEntity;
-import com.example.demo.entity.ShipmentEntity;
+import com.example.demo.entity.RouteOptimizationResult;
+import com.example.demo.entity.Shipment;
 import com.example.demo.service.RouteOptimizationService;
 import com.example.demo.service.ShipmentService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-
+@RequestMapping("/shipments")
 public class ShipmentController {
 
     private final ShipmentService shipmentService;
@@ -18,14 +18,14 @@ public class ShipmentController {
         this.routeService = rs;
     }
 
-    @PostMapping("/shipments/{vehicleId}")
-    public ShipmentEntity createShipment(@PathVariable Long vehicleId,
-                                         @RequestBody ShipmentEntity shipment) {
+    @PostMapping("/{vehicleId}")
+    public Shipment createShipment(@PathVariable Long vehicleId,
+                                   @RequestBody Shipment shipment) {
         return shipmentService.createShipment(vehicleId, shipment);
     }
 
     @PostMapping("/{shipmentId}/optimize")
-    public RouteOptimizationEntity optimize(@PathVariable Long shipmentId) {
+    public RouteOptimizationResult optimize(@PathVariable Long shipmentId) {
         return routeService.optimizeRoute(shipmentId);
     }
 }
