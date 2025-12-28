@@ -25,7 +25,7 @@ public class ShipmentController {
     }
 
     @GetMapping("/{shipmentId}/optimize")
-    public RouteOptimizationResult optimize(@PathVariable Long shipmentId) {
-        return routeService.optimizeRoute(shipmentId);
+    public Shipment optimize(@PathVariable Long shipmentId) {
+        routeService.optimizeRoute(shipmentId);
     }
 }
