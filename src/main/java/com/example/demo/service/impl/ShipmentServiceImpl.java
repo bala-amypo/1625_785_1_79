@@ -58,5 +58,7 @@ public class ShipmentServiceImpl implements ShipmentService {
     public Shipment getShipment(Long id) {
         return shipmentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Shipment not found"));
+                routeOptimization.setShipment(shipment);
+
     }
 }
