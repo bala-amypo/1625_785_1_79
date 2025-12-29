@@ -15,7 +15,7 @@ public class RouteOptimizationController {
     }
     @PostMapping("/optimize/{id}")
     public RouteOptimizationResult optimizeResult(@PathVariable("Shipment_ID") Long id){
-        return optimizeRoute(id);
+        return routeService.optimizeRoute(id);
     }
     @GetMapping("/result/{id}")
     public RouteOptimizationResult getResult(@PathVariable Long id) {
